@@ -15,7 +15,7 @@ int main()
         // Num is positive
         case 1:
             printf("%d is positive.", num);
-        break;
+            break;
 
         // Num is either negative or zero
         case 0:

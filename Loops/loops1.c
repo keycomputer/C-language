@@ -1,4 +1,34 @@
+// #include<stdio.h>
+// int main()
+// {
+//     int i;
+//     // (init ; cond ; incr/decr)
+//     for(i=1 ; i<=10 ; i= i+1)
+//     {
+//         printf("Hello ");
+//     }
+//     return 0;
+// }
+
+
+#include<stdio.h>
+int main()
+{
+    int i, n ;
+    printf("enter nth number ");
+    scanf("%d", &n);
+    // (init ; cond ; incr/decr)
+    for(i=1 ; i<=n ; i= i+1)
+    {
+        printf("Hello ");
+    }
+    return 0;
+}
+
+
+
 // Print Numbers 1 to 10
+
 
 
 

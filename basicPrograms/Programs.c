@@ -3,6 +3,8 @@
 // To compile the program under GCC run the following command
 
 // gcc helloworld.c -o helloworld
+
+
 ///////////////////////////////////////////////////////////
 
 // /* C program to print Hello World! */
@@ -16,6 +18,19 @@
 // }
 ///////////////////////////////////////////////////////////
 
+// #include<stdio.h>
+// int main()
+// {
+//     int a, b;
+//     printf("enter two numbers ");
+//     scanf("%d_%d", &a,&b);
+//     printf("a = %d b= %d",a, b);
+//     return 0;
+// }
+
+
+
+///////////////////////////////////////////////////////////
 
 // Calculate Sum
 // #include <stdio.h>
@@ -25,15 +40,11 @@
 
 //     printf("Enter the first integer: ");
 //     scanf("%d", &num1);
-    
 //     printf("\nEnter the second integer: ");
 //     scanf("%d", &num2);
-    
-//     // Calculate the sum
 //     sum = num1 + num2;
     
-//     // Print the result
-//     printf("\nThe sum of %d and %d is: %d\n", num1, num2, sum);
+//     printf("\nThe sum of %d and %d is: %d\n", num1, num2);
 
 //     return 0;
 // }
@@ -104,6 +115,31 @@
 	
 // 	return 0;
 // }
+// #########################################################
+
+// #include<stdio.h>
+// int main()
+// {
+//     float basic, hra, incentive, total_monthly_salary;
+//     int medical;
+
+//     printf("enter monthly basic salary : ");
+//     scanf("%f", &basic);
+//     hra = basic *0.40 ; 
+//     incentive = basic*0.15 ;
+//     medical = 2500;
+//     total_monthly_salary = basic + hra + incentive+ medical ;
+
+//     printf("Basic Salary \t%0.2f\n", basic);
+//     printf("HRA          \t%0.2f\n", hra);
+//     printf("Incentive    \t%0.2f\n", incentive);
+//     printf("Medical      \t%d\n",medical);
+//     printf("------------------------\n");
+//     printf("Total Salary \t%0.2f", total_monthly_salary);
+// }
+
+
+
 ////////////////////////////////////////////////////////////
 // C program to calculate Simple Interest
 /* c program to calculate simple interest*/
@@ -234,4 +270,42 @@
 //     printf("\nSize of str: %d",sizeof(str));
  
 //     return 0;
+// }
+// #####################################################################
+
+/// character based  ////
+// ASCII  
+// A - 65 Z - 90 
+// a = 97 z - 122
+// 0- 48 
+// #include <stdio.h>
+// int main()
+// {
+//     char ch;
+//     printf("Enter any character ");
+//     scanf("%c" , &ch );
+//     printf("character = %c and ASCII code  = %d", ch, ch);
+// }
+// ############### character increase and decr 
+
+// #include <stdio.h>
+// int main() 
+// {
+//     char ch;
+//     printf("Enter any character ");
+//     scanf("%c" , &ch );
+//     printf("character = %c \nnext character = %c", ch , ch+1);
+// }
+
+
+// ###############  consversion(upper to lower , lower to upper )
+// upper to lower = + 32 
+// lower to upper = -32 
+// #include <stdio.h>
+// int main() 
+// {
+//     char ch;
+//     printf("Enter lower case  character ");
+//     scanf("%c" , &ch );
+//     printf("character = %c \n upper = %c", ch , ch-32);
 // }

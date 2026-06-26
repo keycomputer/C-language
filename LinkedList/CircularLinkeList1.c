@@ -55,18 +55,16 @@ void insertAtPosition( int data,
         = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
     newNode->next = NULL;
-
-    if (head == NULL && position == 0) {
+    if ((position < 0 )|| (head == NULL && position >0 ))
+        printf("invalid position");
+    else if (head == NULL && position == 0) {
         head = newNode;
         newNode->next = head;
     }
-    else if (position == 0) {
-        insertAtBeginning(data);
-    }
     else {
         struct Node* temp = head;
-        int i = 0;
-        while (i < position - 1) {
+        int i = 1;
+        while (i < position - 1 ) {
             temp = temp->next;
             i++;
         }
@@ -89,9 +87,9 @@ void deleteFromBeginning()
         while (temp->next != head) {
             temp = temp->next;
         }
-        temp->next = (head)->next;
+        temp->next = head->next;
         struct Node* toDelete = head;
-        head = (head)->next;
+        head = head->next;
         free(toDelete);
     }
 }
@@ -126,7 +124,7 @@ void deleteAtPosition(int position)
     }
     else {
         struct Node* temp = head;
-        int i = 0;
+        int i = 1;
         while (i < position - 1) {
             temp = temp->next;
             i++;
@@ -172,6 +170,7 @@ int main()
     insertAtEnd(20);
     insertAtBeginning( 5);
     insertAtPosition( 15, 2);
+    insertAtPosition(25, 5);
     printf("Circular Linked List: ");
     traverse(head);
 

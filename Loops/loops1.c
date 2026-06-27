@@ -1,3 +1,5 @@
+
+// print 1 to 10 
 // #include<stdio.h>
 // int main()
 // {
@@ -11,25 +13,20 @@
 // }
 
 
-#include<stdio.h>
-int main()
-{
-    int i, n ;
-    printf("enter nth number ");
-    scanf("%d", &n);
-    // (init ; cond ; incr/decr)
-    for(i=1 ; i<=n ; i= i+1)
-    {
-        printf("Hello ");
-    }
-    return 0;
-}
-
-
-
-// Print Numbers 1 to 10
-
-
+// print 1 to n
+// #include<stdio.h>
+// int main()
+// {
+//     int i, n ;
+//     printf("enter nth number ");
+//     scanf("%d", &n);
+//     // (init ; cond ; incr/decr)
+//     for(i=1 ; i<=n ; i= i+1)
+//     {
+//         printf("Hello ");
+//     }
+//     return 0;
+// }
 
 
 // Print Number 10 to 1 
@@ -37,6 +34,14 @@ int main()
 
 
 // Print odd numbers from 1 to 20
+
+//C program to print all uppercase alphabets 
+
+
+// C program to print all lowercase alphabets 
+
+// C program to read an integer and print its multiplication table.
+
 
 
 // Sum of First N Integers

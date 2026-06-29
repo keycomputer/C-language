@@ -75,21 +75,23 @@ void insertAtPosition( int data,
 
 void deleteFromBeginning()
 {
-    if (head == NULL) {
+    if (head == NULL) // Empty List
+    {
         return;
     }
-    else if ((head)->next == head) {
+    else if ((head)->next == head) // one Data  
+    {
         free(head);
         head = NULL;
     }
     else {
         struct Node* temp = head;
-        while (temp->next != head) {
+        while (temp->next != head) { // end node 
             temp = temp->next;
         }
-        temp->next = head->next;
         struct Node* toDelete = head;
         head = head->next;
+        temp->next = head; // adding new head pointer       
         free(toDelete);
     }
 }
@@ -104,13 +106,25 @@ void deleteFromEnd()
         head = NULL;
     }
     else {
-        struct Node* secondLast = head;
-        while (secondLast->next->next != head) {
-            secondLast = secondLast->next;
+        struct Node* temp  = head ; // start from head 
+        while (temp->next->next != head) { // second last node 
+            temp = temp->next;
         }
-        struct Node* last = secondLast->next;
-        secondLast->next = head;
-        free(last);
+        struct Node* last = temp->next; // Last Node -> last 
+        temp->next = head; // circular 
+        free(last); 
+///////////////////////////////////////////////
+//  1, 2 , 3 , 4 
+        // t2  t1
+        struct Node *temp1 , *temp2 ;
+        temp1 = head; // start 
+        while(temp1->next!= head) // last node 
+        {
+            temp2 = temp1 ;       // second node 
+            temp1 = temp1->next ;
+        }
+        temp2->next = head ;
+        free(temp1);
     }
 }
 
@@ -119,10 +133,14 @@ void deleteAtPosition(int position)
     if (head == NULL) {
         return;
     }
-    else if (position == 0) {
+    else if(position < 0  )
+        return;
+    else if (position == 1) {
         deleteFromBeginning(head);
     }
     else {
+        //  1   2   3   4   5 
+        //          t   tD
         struct Node* temp = head;
         int i = 1;
         while (i < position - 1) {
@@ -134,7 +152,9 @@ void deleteAtPosition(int position)
         free(toDelete);
     }
 }
-
+// 1 2 3 4 5 6 
+// t t t t t t 
+// t
 void traverse()
 {
     if (head == NULL) {
@@ -144,10 +164,18 @@ void traverse()
     do {
         printf("%d -> ", temp->data);
         temp = temp->next;
-    } while (temp != head);
-    printf("HEAD\n");
+    } while (temp != head); 
+    printf("\n");
+    ///////////////////////////////////////
+    // struct Node *temp = head ;
+    // while(temp->next!= head)
+    // {
+    //     printf("%d -> ",temp->data );
+    //     temp = temp->next ;
+    // }
+    // printf("%d \n",temp->data ); // Last node data 
+       
 }
-
 
 int search( int key)
 {

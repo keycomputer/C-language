@@ -201,52 +201,162 @@
 // print Even from 1 to 20  ??
 
 /// print even or odd from  1 to n
-#include<stdio.h>
-int main()
-{
-    int i , n ;
-    printf("enter n  ");
-    scanf("%d", &n);
-    for (i=1; i<=n;i++)
-    {
-        if (i % 2 == 0)
-            printf("%d is Even\n", i);
-        else    
-            printf("%d is Odd\n", i);
-    }
-    i=1;
-    while(i<=n)
-    {
-        if (i % 2 == 0)
-            printf("%d is Even\n", i);
-        else    
-            printf("%d is Odd\n", i);
-        i++;
-    }
-} 
+// #include<stdio.h>
+// int main()
+// {
+//     int i , n ;
+//     printf("enter n  ");
+//     scanf("%d", &n);
+//     for (i=1; i<=n;i++)
+//     {
+//         if (i % 2 == 0)
+//             printf("%d is Even\n", i);
+//         else    
+//             printf("%d is Odd\n", i);
+//     }
+//     i=1;
+//     while(i<=n)
+//     {
+//         if (i % 2 == 0)
+//             printf("%d is Even\n", i);
+//         else    
+//             printf("%d is Odd\n", i);
+//         i++;
+//     }
+// } 
 ///////////////////////////////////////////////////////////////////
 //C program to print all uppercase alphabets 
-
-
+// #### using ASCII code 65  - 90 
+// #include<stdio.h>
+// int main()
+// {
+//     int  i = 65 ;
+//     while(i<=90)
+//     {
+//         printf("%c ", i);
+//         i++;
+//     }
+//     printf("\n");
+//     for(i=65;i<=90;i++)
+//         printf("%c ", i);
+// }
+////// using char 
+// #include<stdio.h>
+// int main()
+// {
+//     int i;
+//     char ch = 'A';
+//     for(i=0;i<26;i++)
+//         printf("%c ", ch+i);
+//     return 0;
+// }
 // C program to print all lowercase alphabets 
-
+// #include<stdio.h>
+// int main()
+// {
+//     int i;
+//     char ch = 'a';
+//     for(i=0;i<26;i++)
+//         printf("%c ", ch+i);
+//     return 0;
+// }
 // C program to read an integer and print its multiplication table.
-
-
+// #include<stdio.h>
+// int main()
+// {
+//     int i, num;
+//     printf("enter number ");
+//     scanf("%d", &num);
+//     for(i=1 ;i <= 10;i++)
+//         printf("%d X %d = %d\n", num, i, i*num);
+//     /*
+//     i=1;
+//     while(i<=10)
+//     {printf("%d ", i*num);
+//     i++;
+//     }
+//     */
+//     return 0; 
+// }
 
 // Sum of First N Integers
-
+/*
+0 + 1 = 1 
+1 + 2 = 3 
+3 + 3 = 6 
+6 + 4 = 10 
+10 + 5 = 15 
+*/
+// #include<stdio.h>
+// int main()
+// {
+//     int i, sum=0, n ;
+//     printf("Enter n(natural number ) : ");
+//     scanf("%d", &n);
+//     i=1;
+//     while(i<=n)
+//     {
+//         sum = sum + i ;
+//         i++;
+//     }
+//     printf("Sum = %d", sum);
+// }
 
 //Sum Of All Even Numbers
-
+// #include<stdio.h>
+// int main()
+// {
+//     int i, sume=0 , n;
+//     printf("enter n ");
+//     scanf("%d", &n);
+//     for(i=1;i<=n;i++)
+//     {
+//         if (i % 2 == 0)
+//             sume+=i;
+//     }
+//     printf("sum of even = %d ",sume);
+//     return 0; 
+// }
 // Sum of All Even and Odd Numbers 
-
-
-// Multiplication Table
-
-
+// #include<stdio.h>
+// int main()
+// {
+//     int i, sume=0, sumo=0 , n;
+//     printf("enter n ");
+//     scanf("%d", &n);
+//     for(i=1;i<=n;i++)
+//     {
+//         if (i % 2 == 0)
+//             sume+=i;
+//         else 
+//             sumo+=i;
+//     }
+//     printf("sum of even = %d \nsum of odd = %d",sume, sumo);
+//     return 0; 
+// }
 //Factorial
-
+// product of n natural numbers 
+// 5! => 1 * 2 * 3 * 4 * 5 , 5 * 4 * .....
+// #include<stdio.h>
+// int main()
+// {
+//     int i, n, prod = 1 ;
+//     printf("enter n ");
+//     scanf("%d", &n);
+//     // i=1;
+//     // while(i<=n)
+//     // {
+//     //     prod *= i;  // prod = prod * i ;
+//     //     i++;
+//     // }
+//     i= n;
+//     while(i >= 1)
+//     {
+//         prod *=i;
+//         i--;
+//     }
+//     printf("%d! = %d", n, prod);
+// }
 // Power of a Number
 
 

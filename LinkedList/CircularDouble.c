@@ -151,20 +151,17 @@ int main()
 }
  
 // creates a new node 
-struct node* create(int data)
+struct node* create(int data) //  struct type address
 {
     struct node* new_node = (struct node*) malloc (sizeof(struct node));
- 
     if (new_node == NULL)
     {
         printf("\nMemory can't be allocated\n");
         return NULL;
     }
- 
     new_node->data = data;
     new_node->next = NULL;
     new_node->prev = NULL;
- 
     return new_node;
 }
  
@@ -172,25 +169,25 @@ struct node* create(int data)
 void insert_begin(int data)
 {
     struct node* new_node = create(data);
- 
     if (new_node)
     {
         // if list is empty
-        if (head == NULL)
+        if (head == NULL) // Adding data for the first time or empty list 
         {
             new_node->next = new_node;
             new_node->prev = new_node;
             head = new_node;
-            return;
         }
-        head->prev->next = new_node;
-        new_node->prev = head->prev;
-        new_node->next = head;
-        head->prev = new_node;
-        head = new_node;
+        else{
+        // 10   1 2 3
+        head->prev->next = new_node; //3->next= 10
+        new_node->prev = head->prev; //10->prev=3
+        new_node->next = head;  // 10->next= 1 
+        head->prev = new_node;  // 1->prev = 10
+        head = new_node;        // head = 10 
+        }
     }
 }
- 
 // inserts a new node at the end 
 void insert_end(int data)
 {
@@ -203,15 +200,44 @@ void insert_end(int data)
             new_node->next = new_node;
             new_node->prev = new_node;
             head = new_node;
-            return;
+        }else{
+            //  1 2 3    10
+        head->prev->next = new_node; //3->next = 10 
+        new_node->prev = head->prev;  // 10->prev = 3 
+        new_node->next = head;  // 10->next = 1 
+        head->prev = new_node;  // 1->prev = 10 
         }
-        head->prev->next = new_node;
-        new_node->prev = head->prev;
-        new_node->next = head;
-        head->prev = new_node;
     }
 }
- 
+ void insert_mid(int position, int data)
+{
+    struct node *new_node = create(data);
+    if (position <= 0)
+    {
+        printf("\nInvalid Position\n");
+    } else if (head == NULL && position > 1) {
+        printf("\nInvalid Position\n");
+    } else if (position == 1) {
+        insert_begin(data);
+    } else {
+        //      p    t 
+        // 1  2  3   4   5 
+        //         6 
+        struct node *temp = head, *prev = NULL;
+            int i = 1;
+            while (i < position && temp != NULL) {
+                prev = temp;
+                temp = temp->next;
+                i++;
+            }
+            prev->next = new_node;
+            new_node->prev = prev ;
+            new_node->next = temp;
+            temp->prev = new_node;
+    }
+    
+}
+
 // inserts node at the given position
 void insert_mid(int position, int data)
 {
@@ -227,15 +253,15 @@ void insert_mid(int position, int data)
         insert_begin(data);
     } else {
         struct node *new_node = create(data);
- 
         if (new_node != NULL) {
             struct node *temp = head, *prev = NULL;
             int i = 1;
  
             // traverse the list to the given position
-            while (++i <= position) {
+            while (i <= position) {
                 prev = temp;
                 temp = temp->next;
+                i++;
             }
  
             // update the prev node to the new noe
@@ -257,14 +283,11 @@ void delete_begin()
         head = NULL;
         return;
     }
- 
     struct node* temp = head;
-    head->prev->next = head->next;
-    head->next->prev = head->prev;
-    head = head->next;
- 
-    free(temp);
-    temp = NULL;
+    head->prev->next = head->next; // 1 2 3    3->next = 2 
+    head->next->prev = head->prev;  // 2->prev = 3 
+    head = head->next;  // head = 2 
+    free(temp); // delete 1 
 }   
  
 // deletes the node from the end of the list

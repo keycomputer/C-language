@@ -205,14 +205,11 @@ void insert_at_beginning(int data)
     printf("\n* Node with data %d was inserted \n", data);
 }
  
-/* inserts a new node at the end of the list */
 void insert_at_end(int data)
 {
     struct node* new_node = create_node(data);
- 
     if (new_node == NULL)
     {
-        memory_error_message();
         return;
     }
     else if (head == NULL)

@@ -24,58 +24,53 @@ void insertAtBeginning(int data)
 }
 void insertAtEnd(int value)
 {
-   struct Node *newNode;
-   newNode = (struct Node*)malloc(sizeof(struct Node));
+   struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
    newNode -> data = value;
    newNode -> next = NULL;
+   newNode -> prev = NULL;
    if(head == NULL)
-   {
-      newNode -> previous = NULL;
       head = newNode;
-   }
    else
    {
+      //  1 2 3 4 -> 5
+      //          <-
       struct Node *temp = head;
       while(temp -> next != NULL)
          temp = temp -> next;
       temp -> next = newNode;
-      newNode -> previous = temp;
+      newNode -> prev = temp;
    }
    printf("\nInsertion success!!!");   
 }
-void insertAfter(int value, int location)
+void insertAfter(int value, int pos)
 {
-   struct Node *newNode;
-   newNode = (struct Node*)malloc(sizeof(struct Node));
+   struct Node *newNode= (struct Node*)malloc(sizeof(struct Node));
    newNode -> data = value;
+   newNode -> prev = newNode -> next = NULL;
    if(head == NULL)
-   {
-      newNode -> previous = newNode -> next = NULL;
-      head = newNode;
-   }
+      printf("List is Empty \n");
+   else if (pos < 1)
+      printf("Invalid Postion given ");
    else
    {
-      struct Node *temp1 = head, temp2;
-      while(temp1 -> data != location)
+      struct Node *temp1 = head, *temp2;
+      int count=1;
+      while(count <pos -1 && temp1 != NULL)
       {
-         if(temp1 -> next == NULL)
-         {
-            printf("Given node is not found in the list!!!");
-            goto EndFunction;
-         }
-         else
-         {
             temp1 = temp1 -> next;
-         }
+            count++;
       }
+      if (temp1 == NULL)
+         printf("Invalid position\n");
+      else{
       temp2 = temp1 -> next;
       temp1 -> next = newNode;
-      newNode -> previous = temp1;
+      newNode -> prev = temp1;
       newNode -> next = temp2;
-      temp2 -> previous = newNode;
-      printf("\nInsertion success!!!");
+      if(temp2 != NULL)
+         temp2 -> prev = newNode;
+      }
    }
-   EndFunction:
 }
 void deleteBeginning()
 {
@@ -84,14 +79,14 @@ void deleteBeginning()
    else
    {
       struct Node *temp = head;
-      if(temp -> previous == temp -> next)
+      if(head->next == NULL)
       {
          head = NULL;
          free(temp);
       }
       else{
-         head = temp -> next;
-         head -> previous = NULL;
+         head = head -> next;
+         head -> prev = NULL;
          free(temp);
       }
       printf("\nDeletion success!!!");
@@ -103,53 +98,67 @@ void deleteEnd()
       printf("List is Empty!!! Deletion not possible!!!");
    else
    {
-      struct Node *temp = head;
-      if(temp -> previous == temp -> next)
+      struct Node *temp = head, *temp2;
+      if(head->next == NULL)
       {
          head = NULL;
          free(temp);
       }
       else{
-         while(temp -> next != NULL)
+         // 1 2 3 4
+         //     t t2
+         while(temp -> next ->next != NULL) // # stop at second last postion 
             temp = temp -> next;
-         temp -> previous -> next = NULL;
-         free(temp);
-      }
+         temp2 = temp->next ; //temp2 belongs to  last node   
+         free(temp2 );
+         temp->next = NULL; // second last is now last Node  
+         }
       printf("\nDeletion success!!!");
    }
 }
-void deleteSpecific(int delValue)
+void deleteposition(int pos)
 {
-   if(head == NULL)
-      printf("List is Empty!!! Deletion not possible!!!");
-   else
-   {
-      struct Node *temp = head;
-      while(temp -> data != delValue)
+   if (head == NULL)
+      printf("List is Empty \n");
+   else if (pos <1)
+      printf("Invalid position\n");
+   else{
+      struct Node *temp = head, *temp2;
+      int i=1;
+      while(i <pos -1 && temp != NULL)
       {
-         if(temp -> next == NULL)
-         {
-            printf("\nGiven node is not found in the list!!!");
-            goto FuctionEnd;
-         }
-         else
-         {
-            temp = temp -> next;
-         }
+         temp = temp->next;
+         i++;   
       }
-      if(temp == head)
-      {
-         head = NULL;
-         free(temp);
-      }
+      // pos invalid 
+      if (temp == NULL)
+         printf("position invalid ");
       else
       {
-         temp -> previous -> next = temp -> next;
-         free(temp);   
+         temp2= temp->next; 
+         temp->next = temp2->next;
+         if (temp->next!=NULL)
+            temp2->next->prev = temp; 
+         free(temp2);
       }
-      printf("\nDeletion success!!!");
    }
-   FuctionEnd:
+}
+void reverse()
+{
+    Node* current = head;
+    Node* temp = NULL;
+    // Swap next and prev for all nodes
+    while (current != NULL) {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev; // Move to next node (which is prev now)
+    }
+
+    // Adjust head pointer
+    if (temp != NULL) {
+        head = temp->prev;
+    }
 }
 void display()
 {

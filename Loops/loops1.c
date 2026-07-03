@@ -479,51 +479,162 @@ count digit
 */
 // (important - 4 programs )
 // Count Digits
-#include <stdio.h>
-int main()
-{
-    int num , count =0; 
-    printf("enter any number ");
-    scanf("%d", &num);
-    while(num  > 0)
-    {
-        ++count;
-        num /= 10 ; // num = num /10 
-    }
-    printf("Count of digits = %d", count);
+// #include <stdio.h>
+// int main()
+// {
+//     int num , count =0; 
+//     printf("enter any number ");
+//     scanf("%d", &num);
+//     while(num  > 0)
+//     {
+//         ++count;
+//         num /= 10 ; // num = num /10 
+//     }
+//     printf("Count of digits = %d", count);
 
-    /*
-    for (  ; num > 0 ; num/=10)     // for ( num ; num > 0 ; num/=10)
-        count++:
+//     /*
+//     for (  ; num > 0 ; num/=10)     // for ( num ; num > 0 ; num/=10)
+//         count++:
 
-    */
-}
+//     */
+// }
 
 // Reverse a Number
 
 // Check for Palindrome
+/*
+rev =  0 
+    1234 
+    1234 % 10 -> 4 
+    1234 /10 -> 123 
+    rev * 10 + remainder 
+    0*10 + 4 => 4 
 
+    123 % 10 -> 3 
+    123 / 10 -> 12 
+    4 * 10 + 3 => 43 
+
+    12 % 10 -> 2 
+    12 /10 -> 1 
+    43 *10 + 2 => 432 
+
+    1 % 10 -> 1 
+    1 / 10 -> 0  STOP
+    432 *10 + 1 => 4321
+
+
+    12321 
+    12321  NITIN 
+*/
+// #include<stdio.h>
+// int main()
+// {
+//     int num, rev=0, rem ;
+//     printf("Enter any number :: ");
+//     scanf("%d", &num);
+
+//     while(num != 0)  // while(num > 0)
+//     {
+//         rem = num % 10 ;
+//         rev = rev * 10 + rem ;
+//         num = num / 10;   // num /=10 ;
+//     }
+//     printf("Reverse = %d", rev);
+//     return 0;
+// }
+
+////////////////////////////////////
+// Palindrome // 
+// #include<stdio.h>
+// int main()
+// {
+//     int num, rev=0, rem , num2;
+//     printf("Enter any number :: ");
+//     scanf("%d", &num);
+//     num2 = num;
+//     while(num != 0)  // while(num > 0)
+//     {
+//         rem = num % 10 ;
+//         rev = rev * 10 + rem ;
+//         num = num / 10;   // num /=10 ;
+//     }  // num = 0 
+//     if ( rev ==  num2 )
+//         printf("Palindrome ");
+//     else
+//         printf("Not a Palindrome ");
+//     return 0;
+// }
 // C program to check prime number
+// #include<stdio.h>
+// int main()
+// {
+//     // using factor count 
+//     int num , i , count =0 ; 
+//     printf("Enter any number : ");
+//     scanf("%d", &num);
 
-// C program to check whether number is POSITIVE, NEGATIVE or ZERO until user doesn't want to exit.
+//     for(i=1; i<=num;i++){
+//         if (num % i ==0 )
+//             count++; 
+//     }
+//     if (count == 2)
+//         printf("Prime number ");
+//     else
+//         printf("not a prime number "); 
+// }
+//////////////////////////////////////////
+// #include<stdio.h>
+// int main()
+// {
+// // using divisibility
+//     int num , i ; 
+//     printf("Enter any number : ");
+//     scanf("%d", &num);
+    
+//     for(i=2; i<num;i++){        // for(i=2; i<=num/2 ;i++ )// SQRT(NUM)
+//         if (num % i ==0 )
+//             break ;
+//     }
+//     // 11 -> 2 , 10 11STOP 
+//     // 12 -> 2 , 11 2STOP 
+//     if (i == num)
+//         printf("Prime number ");
+//     else
+//         printf("not a prime number "); 
+// }
+// C program to sum numbers if POSITIVE ... ,exit if user enters ZERO 
 
+// #include<stdio.h>
+// int main()
+// {
+//     int sum =0, num;
+
+//     for( ; ;) // infinite // while(1) // while(10) // for(;1 ;)
+//     {
+//         printf("Enter any number ");
+//         scanf("%d", &num );
+//         if (num == 0 )
+//             break ;
+//         else if(num > 0 )
+//             sum = sum + num;       
+//     }
+//     printf("Sum = %d ", sum );
+// }
+////////////////////////////////////
 /**
  * C program to find HCF of two numbers
  */
-
 // #include <stdio.h>
-
 // int main()
 // {
 //     int i, num1, num2, min, hcf=1;
-
-//     /* Input two numbers from user */
 //     printf("Enter any two numbers to find HCF: ");
 //     scanf("%d%d", &num1, &num2);
-
 //     /* Find minimum between two numbers */
-//     min = (num1<num2) ? num1 : num2;
-
+//     if(num1 > num2)
+//         min = num2;
+//     else
+//         min = num1 ;
 //     for(i=1; i<=min; i++)
 //     {
 //         /* If i is factor of both number */
@@ -532,10 +643,35 @@ int main()
 //             hcf = i;
 //         }
 //     }
-
 //     printf("HCF of %d and %d = %d\n", num1, num2, hcf);
-
 //     return 0;
 // }
 
-// fibonacci
+// fibonacci (important )
+// 0 1 1 2 3 5 8 13 
+/*
+n1   n2   sum(n1+n2)
+0    1     1 
+1    1     2 
+1    2     3 
+2    3     5 
+3    5     8 
+*/
+
+// #include<stdio.h>
+// int main()
+// {
+//     int n1 =0, n2=1, sum ;
+//     int n, i;
+//     printf("Enter nth Term ");
+//     scanf("%d", &n);
+
+//     for(i=1;i<=n;i++)
+//     {
+//         printf("%d ", n1);
+//         sum = n1 + n2 ; 
+//         n1=  n2 ;
+//         n2 = sum; 
+//     }
+// }
+/////////////////////////////////////////////////////////

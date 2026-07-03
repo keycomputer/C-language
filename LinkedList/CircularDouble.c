@@ -301,48 +301,74 @@ void delete_end()
         head = NULL;
         return;
     }
- 
-    struct node* last_node = head->prev;
- 
-    last_node->prev->next = head;
-    head->prev = last_node->prev;
- 
-    free(last_node);
-    last_node = NULL;
+    // 1 2 3 4 
+    // temp = 4 
+    struct node* temp = head->prev;
+    temp->prev->next = head;  // 3->next = 1 
+    head->prev = temp->prev; // 1->prev = 1 
+    free(temp);
 }
  
 // deletes the node from the given position
-void delete_mid(int position)
+// void delete_mid(int position)
+// {
+//     if (position <= 0) {
+//         printf("\n Invalid Position \n");
+//     }
+//     else if (position > list_size()) {
+//         printf("\n Invalid position \n");
+//     }
+//     else if (position == 1) {
+//         delete_begin();
+//     }
+//     else if (position == list_size()) {
+//         delete_end();
+//     }
+//     else {
+//         struct node *temp = head;
+//         struct node *prev = NULL;
+//         int i = 1;
+ 
+//         while (i < position) {
+//             prev = temp;
+//             temp = temp->next;
+//             i += 1;
+//         }
+//         prev->next = temp->next;
+//         temp->next->prev = prev;
+//         free(temp);
+//         temp = NULL;
+//     }
+// }
+ void delete_mid(int position)
 {
     if (position <= 0) {
         printf("\n Invalid Position \n");
-    }
-    else if (position > list_size()) {
-        printf("\n Invalid position \n");
+    }else if (head == NULL)
+    {
+        printf("\nList is empty \n");
     }
     else if (position == 1) {
         delete_begin();
     }
-    else if (position == list_size()) {
-        delete_end();
-    }
     else {
-        struct node *temp = head;
+        // 1 2 3 4 5 // 4 delete 
+            // p t
+        // 1 2 3 4 5 // 5 delete 
+            //   p t
+        struct node *temp = head; // tobeDeleted 
         struct node *prev = NULL;
         int i = 1;
- 
         while (i < position) {
             prev = temp;
             temp = temp->next;
-            i += 1;
+            i++; 
         }
         prev->next = temp->next;
-        temp->next->prev = prev;
+        temp->next->prev = prev; 
         free(temp);
-        temp = NULL;
     }
 }
- 
 // search the node with the given key item
 int search(int key)
 {
@@ -350,19 +376,16 @@ int search(int key)
         printf("\n Not Found \n");
         return 0;
     }
- 
     struct node* temp = head;
     do
     {
         if (temp->data == key) {
-            return 1;
+            return 1; // found 
         }
         temp = temp->next;
     } while (temp != head);
- 
-    return 0;
+    return 0; // not found 
 }
- 
 // updates the data of the given node position
 void update(int position, int new_value)
 {
@@ -382,8 +405,7 @@ void update(int position, int new_value)
     }
     temp->data = new_value;
 }
- 
- 
+
 // sorts the linked list data using insertion sort
 void sort()
 {
@@ -394,10 +416,8 @@ void sort()
     struct node* temp1 = head;
     struct node* temp2 = head;
     int key = 0, value;
- 
     do {
         temp2 = temp1->next;
- 
         while(temp2 != head)
         {
             if (temp1->data > temp2->data)
@@ -410,10 +430,7 @@ void sort()
         }
         temp1 = temp1->next;
     }while (temp1->next != head);
- 
 }
- 
- 
 // display the list
 void display()
 {
@@ -421,14 +438,12 @@ void display()
         printf("\nList is empty!\n");
         return;
     }
- 
     struct node* temp = head;
     do {
         printf("%d ", temp->data);
         temp = temp->next;
     } while (temp != head);
 }
- 
 // display the list from end to start
 void display_reverse(struct node* temp)
 {
@@ -436,8 +451,7 @@ void display_reverse(struct node* temp)
         printf("%d ", temp->data);
         return;
     }
- 
-    display_reverse(temp->next);
+    display_reverse(temp->next); // recursion 
     printf("%d ", temp->data);
 }
  
@@ -447,15 +461,12 @@ int list_size()
     if (head == NULL) {
         return 0;
     }
- 
     struct node* temp = head;
     int count = 0;
- 
     do {
         count += 1;
         temp = temp->next;
     } while (temp != head);
- 
     return count;
 }
  

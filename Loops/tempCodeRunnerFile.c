@@ -1,6 +1,6 @@
-while(num != 0)  // while(num > 0)
+or(i = 1; i <= 4 ;i++ )
     {
-        rem = num % 10 ;
-        rev = rev * 10 + rem ;
-        num = num / 10;   // num /=10 ;
-    }  /
+        for(j = 1; j <= 4 ; j++)
+            printf("* ");
+        printf("\n");
+    }

@@ -18,15 +18,15 @@
 // }
 ///////////////////////////////////////////////////////////
 
-// #include<stdio.h>
-// int main()
-// {
-//     int a, b;
-//     printf("enter two numbers ");
-//     scanf("%d_%d", &a,&b);
-//     printf("a = %d b= %d",a, b);
-//     return 0;
-// }
+#include<stdio.h>
+int main()
+{
+    int a, b;
+    printf("enter two numbers ");
+    scanf("%d_%d", &a,&b);
+    printf("a = %d b= %d",a, b);
+    return 0;
+}
 
 
 

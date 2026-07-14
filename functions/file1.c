@@ -2,8 +2,8 @@
 
 // # Example 1 
 // #include<stdio.h>
-// void display() 
-// {
+// void display()  // declaration / prototype 
+// {                // defination
 //     printf("1. add the data \n");
 //     printf("2. delete the data \n");
 //     printf("3. display data \n");
@@ -77,7 +77,7 @@
 // {
 //     primeNumber();
 // }
-
+// ######################################
 // 2. // yes parameter , no return 
 // #include<stdio.h>
 // void factorial(int number)
@@ -113,6 +113,88 @@
 //     swap(num1, num2);
 //     printf("After Swap Function num1 = %d and num2 = %d\n", num1, num2);
 // }
+
+// ############################################
+// 3. yes return type , no parameter
+// #include<stdio.h>
+// long int factorial()
+// {
+//     long int num, fact=1;
+//     printf("Enter number ");
+//     scanf("%ld",&num);
+
+//     for(int i=1;i<=num;i++)
+//         fact = fact * i ;
+//     return fact;
+// }
+// int main()
+// {
+//     long int result;
+//     result = factorial(); // functon call 
+//     printf("Factorial = %ld ", result);
+//     return 0 ;
+// }
+
+// ############################################
+// 4. yes return type, yes parameter 
+// #include<stdio.h>
+// long int factorial(long int num)
+// {
+//     long int fact = 1;
+//     for(int i=1;i<=num;i++)
+//         fact = fact * i ;
+//     return fact;
+// }
+// int main()
+// {
+//     long int result;
+//     long int num;
+//     printf("Enter number ");
+//     scanf("%ld",&num);
+//     result = factorial(num); // functon call 
+//     printf("Factorial = %ld ", result);
+//     return 0 ;
+// }
+
+
+// ###################################################################
+// ###################################################################
+// Prototyping 
+// Example 1 
+// void factorial(int);  // declaration / prototype 
+// int main()
+// {
+//     int num=5;
+//     factorial(num);
+// }
+// void factorial(int num)
+// {
+//     int fact = 1 ;
+//     for(int i=1;i<=num;i++)
+//         fact = fact * i ;
+//     printf("Factorial = %d ", fact);
+// }
+
+// Example 2
+// #include<stdio.h>
+// void addition(int, int);  // prototype 
+// void substraction(int , int);  // prototype 
+
+// int main()
+// {
+//     int num1 = 100, num2 = 50 ;
+//     addition(num1, num2);
+//     substraction(num1, num2);
+// }
+// void addition(int a, int b)
+// {
+//     printf("Sum = %d\n", a+b);
+// }
+// void substraction(int a, int b){
+// printf("Sub = %d\n", a-b);
+// }
+
+
 
 
 

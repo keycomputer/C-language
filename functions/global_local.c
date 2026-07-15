@@ -41,23 +41,42 @@
 // }
 
 // local variable
-#include<stdio.h>
+// #include<stdio.h>
 
-void increment()
-{
-    int a = 10 ;
-    a = a + 1 ;
-    printf("A = %d \n", a);
-}
-int main()
-{
-    increment();
-    // printf("A = %d \n", a); // error 
-    increment();
-    // printf("A = %d \n", a);  // error 
-    increment();
-    // printf("A = %d \n", a); // error 
-    increment();
-    // printf("A = %d \n", a); // error 
+// void increment()
+// {
+//     int a = 10 ;
+//     a = a + 1 ;
+//     printf("A = %d \n", a);
+// }
+// int main()
+// {
+//     increment();
+//     // printf("A = %d \n", a); // error 
+//     increment();
+//     // printf("A = %d \n", a);  // error 
+//     increment();
+//     // printf("A = %d \n", a); // error 
+//     increment();
+//     // printf("A = %d \n", a); // error 
 
-}
+// }
+
+// ################### 
+//  garbage value in auto 
+// #include<stdio.h>
+
+// int main()
+// {
+//     int a = 0;
+//     printf("%d", a);
+// }
+/// initial value of global variable
+// #include<stdio.h>
+// int a;
+// int main()
+// {
+//     extern int b;
+//     printf("%d - %d", a, b );
+// }
+// int b = 1000 ; 

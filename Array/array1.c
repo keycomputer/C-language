@@ -151,13 +151,131 @@
 //////////////////////////// Sum of  
 // Example 9 
 // sum of even and odd 
-
+// #include<stdio.h>
+// int main()
+// {
+//     int arr[100],n, sume=0, sumo=0, i;
+//     printf("Enter no of elements :: ");
+//     scanf("%d", &n);
+    
+//     // input()
+//     for(i=0;i<n;i++)
+//     {
+//         printf("Enter element : ");
+//         scanf("%d", &arr[i]);
+//     }
+//     for(i=0;i<n;i++)
+//     {
+//         if (arr[i] % 2 == 0)
+//             sume += arr[i];
+//         else
+//             sumo += arr[i];
+//     }
+//     printf("Sum of even = %d\n", sume);
+//     printf("Sum of odd = %d\n", sumo);
+    
+// }
 // Example 10 
-// sun of number divisible by 5 
-
+// sum of number divisible by 5 
+// #include<stdio.h>
+// int main()
+// {
+//     int arr[100],n, sum=0, i;
+//     printf("Enter no of elements :: ");
+//     scanf("%d", &n);
+    
+//     // input()
+//     for(i=0;i<n;i++)
+//     {
+//         printf("Enter element : ");
+//         scanf("%d", &arr[i]);
+//     }
+//     for(i=0;i<n;i++)
+//     {
+//         if (arr[i] % 5 == 0)
+//             sum += arr[i];
+//     }
+//     printf("Sum of divisible by  = %d\n", sum);
+    
+// }
 // Example 11 
 // Cummulative sum 
+// #include<stdio.h>
+// int main()
+// {
+//     int arr[] ={1,2,3,4,5}, n= 5, i;
+//     for(i=1;i<n;i++)
+//     {
+//         arr[i] += arr[i-1];
+//     }
+//     for(i=0;i<n;i++)
+//         printf("%d\t", arr[i]);
 
+// }
 // Example 12 
 // Modification 
 
+// #include<stdio.h>
+// int main()
+// {
+//     int arr[] ={1,2,3,4,5,6,7,8,9,10}, n=10;
+//     // odd values -> +1 
+//     // even values -> /2 
+//     for(int i=0;i<n;i++)
+//     {
+//         if (arr[i] %2 == 1)
+//             arr[i] = arr[i] + 1 ;
+//         else
+//             arr[i] = arr[i] / 2 ;
+//     }
+//     // output
+//     for(int i=0;i<n;i++)
+//         printf("%d\t", arr[i]);
+// }
+// Example 13 
+// Linear Search 
+
+// #include<stdio.h>
+// int main()
+// {
+//     int arr[] ={46,57,2,78,75,22,67,90}, n=8, elem = 20 ;
+//     int i, flag = 0; 
+//     for(i=0;i<n;i++)
+//     {
+//         if (arr[i] == elem)
+//         {
+//             flag = 1 ; // found 
+//             break;
+//         }
+//     }
+//     if(flag == 0)
+//         printf("Data not found ");
+//     else    
+//         printf("Found ");
+// }
+
+
+// Example 14 
+// Binary Search 
+
+#include<stdio.h>
+int main()
+{
+    int arr[] ={2,4,6,10,15,17,18,20,45,89,90}, n=11, elem = 30;
+    int low =0 , high =n-1 , flag = 0; 
+    while(low <= high)
+    {
+        int mid = (low  + high )/2;
+        if(arr[mid ]== elem)
+        {
+            printf("Data Found");
+            break;
+        }
+        else if(arr[mid ]< elem) // right 
+            low = mid +1 ;
+        else  // left 
+            high = mid -1;
+    }
+    if(low > high)
+        printf("Not Found ");
+}

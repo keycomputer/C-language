@@ -27,8 +27,8 @@
 // }
 
 
-////////////////// Sum of all elements //////////////////
-///////////////// Sum of Diagonals ///////////////////
+// //////////////// Sum of all elements //////////////////
+// /////////////// Sum of Diagonals ///////////////////
 
 // #include<stdio.h>
 // int main()
@@ -83,7 +83,7 @@
 //     printf("\nSum of Minor Diagonal  = %d\n\n", sumMi);
 // }
 
-////////////////// Upper Triangle and Lower triangle 
+// //////////////// Upper Triangle and Lower triangle 
 
 // #include<stdio.h>
 // int main()

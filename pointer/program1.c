@@ -194,23 +194,43 @@
 //         printf("%d\t", *(ptr++));
 // }
 // Write a C program to copy one array to another using pointers.
+// #include<stdio.h>
+// int main()
+// {
+//     int arr1[]= {11,12,13,14,15};
+//     int arr2[5];
+//     int *ptr1, *ptr2, i ;
+//     ptr1 = arr1;
+//     ptr2 = arr2;
+//     for(i=0;i<5;i++)
+//     {
+//         *ptr2 = *ptr1 ; // copy content 
+//         ptr1++;
+//         ptr2++; 
+//     }
+//     ptr2= arr2;
+//     for(i=0;i<5;i++)
+//         printf("%d\t", *(ptr2++));
+// }
+
+// Write a C program to search an element in array using pointers.
 #include<stdio.h>
 int main()
 {
-    int arr1[]= {11,12,13,14,15};
-    int arr2[5];
-    int *ptr1, *ptr2, i ;
-    ptr1 = arr1;
-    ptr2 = arr2;
-    for(i=0;i<5;i++)
-    {
-        *ptr2 = *ptr1 ; // copy content 
-        ptr1++;
-        ptr2++; 
-    }
-    ptr2= arr2;
-    for(i=0;i<5;i++)
-        printf("%d\t", *(ptr2++));
-}
+    int arr1[]= {162,76,23,78,3,67,324,45};
+    int *ptr, n=8, elem, i; 
+    printf("Enter any element ");
+    scanf("%d", &elem);
 
-// Write a C program to search an element in array using pointers.
+    ptr = arr1 ; // ptr = &arr[0];
+    for(i=0;i<n;i++)
+    {
+        if (*(ptr+i) == elem)  
+        {
+            printf("Found at index = %d ", i);
+            break; 
+        }
+    }
+    if (i == n)
+        printf("Not Found ");
+}

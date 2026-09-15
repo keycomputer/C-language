@@ -27,5 +27,4 @@ int main()
     else
         s1.grade = 'D';
     printf("%s\t%f\t%c", s1.name, s1.per, s1.grade);
-    
 }
